@@ -1,4 +1,26 @@
-# MASA Epistemic Orchestrator
+<p align="center">
+  <img src="docs/assets/masa-hero.svg" alt="MASA Epistemic Orchestrator" width="100%" />
+</p>
+
+<p align="center">
+  <img src="docs/assets/masa-mark.svg" alt="MASA mark" width="112" height="112" />
+</p>
+
+<h1 align="center">MASA Epistemic Orchestrator</h1>
+
+<p align="center">
+  Proof-first orchestration for scientific agents.
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-0b1020?style=for-the-badge&labelColor=0b1020&color=f3b45a" alt="MIT License" /></a>
+  <a href="README.md#test-status"><img src="https://img.shields.io/badge/tests-86%20passing-0b1020?style=for-the-badge&labelColor=0b1020&color=67e8f9" alt="Tests passing" /></a>
+  <a href="README.md#supported-paths"><img src="https://img.shields.io/badge/connectors-Claude%20%7C%20Codex-0b1020?style=for-the-badge&labelColor=0b1020&color=8b5cf6" alt="Claude and Codex" /></a>
+</p>
+
+<p align="center">
+  MCP retrieval, provenance-locked citations, deterministic fallback, and operator escalation.
+</p>
 
 MASA Epistemic Orchestrator is a research orchestration system for evidence-grounded scientific workflows. It combines MCP-based literature retrieval, strict transport validation, provenance-locked citation checks, deterministic fallback retries, and operator escalation.
 
@@ -12,6 +34,14 @@ Most agentic research pipelines fail in predictable ways:
 - they provide no operator-facing trace when the pipeline breaks
 
 This project is designed to make those failures explicit and enforceable.
+
+## At A Glance
+
+- strict MCP boundary validation
+- authoritative served-reference provenance tracking
+- deterministic fallback retries with causal-lock semantics
+- operator escalation with structured trace payloads
+- one shared runtime boundary for both Claude and Codex
 
 ## Core Guarantees
 
@@ -43,6 +73,15 @@ A correct execution sequence is:
 3. execute the Worker only after authoritative provenance exists
 
 This is what prevents citation drift between retrieval and synthesis.
+
+## Visual Identity
+
+The repository ships with a reusable MASA mark and hero artwork under `docs/assets/`.
+
+- `docs/assets/masa-mark.svg`
+- `docs/assets/masa-hero.svg`
+
+Use the mark for docs, demos, and lightweight branding. If you want a GitHub social preview image, export the hero to PNG and upload it in the repository social preview settings.
 
 ## Repository Layout
 
@@ -158,6 +197,10 @@ log = await session.execute()
 The important constraint is simple:
 
 - never run the Worker before ingesting server-owned literature output
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=Lesz-Xi/masa-epistemic-orchestrator&type=Date)](https://star-history.com/#Lesz-Xi/masa-epistemic-orchestrator&Date)
 
 ## Security Model
 

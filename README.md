@@ -1,9 +1,5 @@
 <p align="center">
-  <img src="docs/assets/masa-hero.svg" alt="MASA Epistemic Orchestrator" width="100%" />
-</p>
-
-<p align="center">
-  <img src="docs/assets/masa-mark.svg" alt="MASA mark" width="112" height="112" />
+  <img src="docs/assets/masa-hero.png" alt="MASA Epistemic Orchestrator" width="100%" />
 </p>
 
 <h1 align="center">MASA Epistemic Orchestrator</h1>
@@ -76,12 +72,7 @@ This is what prevents citation drift between retrieval and synthesis.
 
 ## Visual Identity
 
-The repository ships with a reusable MASA mark and hero artwork under `docs/assets/`.
-
-- `docs/assets/masa-mark.svg`
-- `docs/assets/masa-hero.svg`
-
-Use the mark for docs, demos, and lightweight branding. If you want a GitHub social preview image, export the hero to PNG and upload it in the repository social preview settings.
+The repository uses the hero artwork at `docs/assets/masa-hero.png` as the primary public-facing visual. Use the same file for the GitHub social preview image to keep the repository identity consistent.
 
 ## Repository Layout
 

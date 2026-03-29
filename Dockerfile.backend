@@ -1,0 +1,16 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy source code
+COPY orchestrator/ orchestrator/
+COPY clients/ clients/
+COPY masa_mcp/ masa_mcp/
+
+# Start the uvicorn API server
+# We use 0.0.0.0 so docker-compose can map the port
+CMD ["uvicorn", "orchestrator.server:app", "--host", "0.0.0.0", "--port", "3201"]

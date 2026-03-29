@@ -1,0 +1,16 @@
+.env
+.venv/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+
+console/node_modules/
+console/.next/
+console/tsconfig.tsbuildinfo
+
+_reference/
+CLEANUP.sh
+deploy.sh
+docker-compose.yml
+
+.DS_Store

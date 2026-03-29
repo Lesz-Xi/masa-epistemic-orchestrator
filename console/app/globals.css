@@ -1,0 +1,163 @@
+/* ============================================================================
+   MASA Operator Console — Design Tokens & Global Styles
+   Warm cinematic dark palette, instrument-grade density
+   ============================================================================ */
+
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* --- Token Vocabulary --- */
+:root {
+  /* Surface elevation ladder (dark, ascending) */
+  --bg:          #0E0D0C;
+  --bg-2:        #131210;
+  --bg-3:        #1A1816;
+  --bg-4:        #211F1C;
+  --bg-5:        #282523;
+  --sidebar-bg:  #0B0A09;
+
+  /* Accent — amber only */
+  --accent:      #C8965A;
+  --accent-dim:  rgba(200, 150, 90, 0.15);
+  --accent-glow: rgba(200, 150, 90, 0.055);
+
+  /* Text hierarchy (warm white, descending opacity) */
+  --text-1:      #F5EFE5;
+  --text-2:      #B6AB98;
+  --text-3:      #8E8478;
+  --text-4:      #6B6159;
+
+  /* Semantic status */
+  --status-pending:    #6B6159;
+  --status-running:    #C8965A;
+  --status-validating: #C8965A;
+  --status-fixing:     #7BA3C9;
+  --status-succeeded:  #8CA678;
+  --status-failed:     #D96A5D;
+  --status-escalated:  #E8AF5E;
+
+  /* Borders */
+  --border:      rgba(255, 255, 255, 0.07);
+  --border-2:    rgba(255, 255, 255, 0.12);
+  --border-accent: rgba(200, 150, 90, 0.3);
+
+  /* Interactive */
+  --bg-hover:    rgba(255, 255, 255, 0.04);
+  --bg-active:   rgba(200, 150, 90, 0.08);
+
+  /* Typography */
+  --font-display: 'Instrument Serif', serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Spacing (8px base grid) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Layout */
+  --sidebar-w: 240px;
+  --rail-w: 320px;
+  --topbar-h: 42px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  /* Easing */
+  --ease:        cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out:    cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --- Reset & Base --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-2);
+  border-radius: 3px;
+}
+
+/* --- Eyebrow label pattern (mono, uppercase, tiny) --- */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+/* --- Mono data --- */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+/* --- Display heading --- */
+.display {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text-1);
+}
+
+/* --- Three-zone shell --- */
+.shell {
+  display: grid;
+  grid-template-columns: var(--sidebar-w) 1fr var(--rail-w);
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (max-width: 1180px) {
+  .shell {
+    grid-template-columns: var(--sidebar-w) 1fr;
+  }
+  .shell > :last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+  .shell > :first-child {
+    display: none;
+  }
+  .shell > :last-child {
+    display: none;
+  }
+}

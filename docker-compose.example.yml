@@ -1,0 +1,36 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: masa_orchestrator_backend
+    env_file: .env
+    restart: unless-stopped
+    volumes:
+      - ./orchestrator:/app/orchestrator
+      - ./clients:/app/clients
+      - ./masa_mcp:/app/masa_mcp
+
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: masa_mcp_server
+    env_file: .env
+    ports:
+      - "0.0.0.0:3202:3202"
+    restart: unless-stopped
+    command: ["uvicorn", "masa_mcp.http_server:app", "--host", "0.0.0.0", "--port", "3202"]
+
+  frontend:
+    build:
+      context: ./console
+      dockerfile: Dockerfile
+    container_name: masa_orchestrator_console
+    environment:
+      - BACKEND_API_URL=http://backend:3201
+    ports:
+      - "127.0.0.1:3205:3200"
+    restart: unless-stopped
+    depends_on:
+      - backend
